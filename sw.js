@@ -1,11 +1,11 @@
 importScripts('js/sw-utilities.js');
 
-const CACHE_STATIC = 'static-V1'; 
-const CACHE_DYNAMIC = 'dynamic'; 
+const CACHE_STATIC = 'static-V1';
+const CACHE_DYNAMIC = 'dynamic';
 const CACHE_INMUTABLE = 'inmutable';
 
 const APP_SHELL = [
-    '/',
+    /* '/', */
     'css/style.css',
     'img/favicon.ico',
     'img/avatars/hulk.jpg',
@@ -45,7 +45,7 @@ self.addEventListener('fetch', e => {
     const respuesta = caches.match(e.request).then(res => {
         if (res) {
             return res;
-        }else{
+        } else {
             return fetch(e.request).then(newRes => {
                 return actualizarCacheDinamico(CACHE_DYNAMIC, e.request, newRes);
             });
