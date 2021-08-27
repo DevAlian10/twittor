@@ -6,7 +6,7 @@ if (navigator.serviceWorker) {
     if (url.includes('localhost')) {
         swLocation = '/sw.js';
     }
-    navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register(swLocation);
 }
 // Referencias de jQuery
 
